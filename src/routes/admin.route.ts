@@ -17,6 +17,6 @@ router.post("/login", loginAdmin);
 router.post("/logout", logoutAdmin);
 router.delete("/:id", deleteAdmin);
 router.post("/all-admins", getAllAdmins);
-router.post("/update/:id", updateAdmin);
+router.put("/update/:id", updateAdmin);
 
 export default router;

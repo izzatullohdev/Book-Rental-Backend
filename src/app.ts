@@ -42,7 +42,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // 5. Compression
-app.use("*", compression());
+app.use(compression());
 
 // 6. Routers
 app.use("/api/v1", router);
