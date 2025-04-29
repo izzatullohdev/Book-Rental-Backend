@@ -3,6 +3,7 @@ import { Admin } from "../models/Admin";
 import { CustomError } from "../utils/CustomError";
 import { asyncHandler } from "../middlewares/asyncHandler";
 import { responseHandler } from "../utils/responseHandler";
+import { signToken } from "../utils/jwt";
 
 // @rule : Admin
 // @desc : Admin cretate
@@ -59,10 +60,11 @@ export const loginAdmin = asyncHandler(async (req: Request, res: Response) => {
     throw new CustomError("Invalid credentials", 401);
   }
 
-  // Success login: JWT yaratamiz (hozircha JWT create function yozmayapman, agar hohlasang keyin qo'shamiz)
+  const token = signToken({ id: admin._id, role: admin.role });
   responseHandler(res, 200, "Login successful", {
     name: admin.name,
     role: admin.role,
+    token,
   });
 });
 
@@ -140,3 +142,21 @@ export const updateAdmin = asyncHandler(async (req: Request, res: Response) => {
 
   responseHandler(res, 200, "Admin updated successfully", admin);
 });
+
+// controllers/admin.controller.ts
+export const getMyProfile = asyncHandler(
+  async (req: Request, res: Response) => {
+    const userId = req.user?.id;
+    if (!userId) {
+      res.status(401).json({ message: "Unauthorized" });
+      return;
+    }
+    const admin = await Admin.findById(userId).select("-password");
+    if (!admin) {
+      res.status(404).json({ message: "Admin not found" });
+      return;
+    }
+
+    res.status(200).json({ success: true, data: admin });
+  }
+);

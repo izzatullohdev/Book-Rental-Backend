@@ -15,8 +15,9 @@
     "resolveJsonModule": true, // JSON fayllarni import qila olish
     "types": ["node", "express"], // node va express uchun type definitionlarni olish
     "lib": ["ES2020"], // kerakli JavaScript funksiyalar uchun
-    "allowSyntheticDefaultImports": true // default importga ruxsat
+    "allowSyntheticDefaultImports": true, // default importga ruxsat
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
-  "include": ["src"], // faqat src ichidagi fayllarni compile qilish
+  "include": ["src", "types", "types"], // faqat src ichidagi fayllarni compile qilish
   "exclude": ["node_modules", "dist"] // compile qilmaydigan papkalar
 }
