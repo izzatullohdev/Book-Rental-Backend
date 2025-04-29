@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // ES2020 funksiyalaridan foydalanish (Promise, async/await, va h.k.)
+    "module": "CommonJS", // Node.js modullar uchun CommonJS
+    "rootDir": "./src", // source kod papkasi
+    "outDir": "./dist", // compile qilingan kod papkasi
+    "strict": true, // hamma qat'iy tekshiruvlar yoqilgan (professional odat)
+    "esModuleInterop": true, // require() va importlarni moslashtirish
+    "forceConsistentCasingInFileNames": true, // fayl nomlarida katta-kichik harf farqlariga e'tibor
+    "moduleResolution": "node", // node_modules ichidan modullarni topish
+    "skipLibCheck": true, // node_modules ichidagi .d.ts fayllarni tekshirmaydi (tezroq build)
+    "noImplicitAny": true, // any tipini majburlab aniqlashtirish
+    "noUnusedLocals": true, // foydalanilmagan o'zgaruvchilar uchun warning
+    "noUnusedParameters": true, // foydalanilmagan parametrlar uchun warning
+    "resolveJsonModule": true, // JSON fayllarni import qila olish
+    "types": ["node", "express"], // node va express uchun type definitionlarni olish
+    "lib": ["ES2020"], // kerakli JavaScript funksiyalar uchun
+    "allowSyntheticDefaultImports": true // default importga ruxsat
+  },
+  "include": ["src"], // faqat src ichidagi fayllarni compile qilish
+  "exclude": ["node_modules", "dist"] // compile qilmaydigan papkalar
+}
