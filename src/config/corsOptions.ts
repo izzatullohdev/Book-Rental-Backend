@@ -1,9 +1,9 @@
 import { CorsOptions } from "cors";
 
 const allowedOrigins = [
+  "http://localhost:5173",
   "http://localhost:3000", // Dev Frontend (React, Next.js)
   "https://your-production-site.com", // Production Frontend
-  "http://localhost:5173",
 ];
 
 export const corsOptions: CorsOptions = {
