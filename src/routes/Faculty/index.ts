@@ -6,10 +6,12 @@ import tredTypeRoutes from "./tredtype.route";
 
 const router = express.Router();
 
-// Root: /api/v1/faculty
-router.use("/", facultyRoutes); // GET /, POST /
-router.use("/group", groupRoutes); // /group/**
-router.use("/education", educationRoutes); // /education/**
-router.use("/tredtype", tredTypeRoutes); // /tredtype/**
+// Avval child route'lar
+router.use("/group", groupRoutes);
+router.use("/education", educationRoutes);
+router.use("/tredtype", tredTypeRoutes);
+
+// So‘ngida umumiy faculty routes
+router.use("/", facultyRoutes); // bu /:id ni ichida oladi
 
 export default router;
