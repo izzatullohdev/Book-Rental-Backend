@@ -5,6 +5,7 @@ export interface IFaculty extends Document {
   title: string;
   groups: Types.ObjectId[];
   educationTypes: Types.ObjectId[];
+  tredTypes: Types.ObjectId[];
 }
 
 const facultySchema = new Schema<IFaculty>({
@@ -22,6 +23,12 @@ const facultySchema = new Schema<IFaculty>({
     {
       type: Schema.Types.ObjectId,
       ref: "EducationType",
+    },
+  ],
+  tredTypes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "TredType",
     },
   ],
 });

@@ -9,7 +9,7 @@ import {
 
 import { validateRequest } from "../../middlewares/validateRequest";
 import {
-  createGroupSchema,
+  createFacultySchema,
   updateGroupSchema,
 } from "../../validations/Faculty/group.validation";
 
@@ -17,7 +17,7 @@ const router = express.Router();
 
 router
   .route("/")
-  .post(validateRequest(createGroupSchema), createGroup)
+  .post(validateRequest(createFacultySchema), createGroup)
   .get(getAllGroups);
 
 router
