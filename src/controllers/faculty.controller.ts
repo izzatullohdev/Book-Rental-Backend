@@ -20,11 +20,11 @@ export const getAllFaculties = asyncHandler(
 // @access Private
 export const createFaculty = asyncHandler(
   async (req: Request, res: Response) => {
-    const { title } = req.body;
-    if (!title) {
+    const { title, group, course } = req.body;
+    if (!title || !group || !course) {
       throw new CustomError("Please provide title", 400);
     }
-    const faculty = await Faculty.create({ title });
+    const faculty = await Faculty.create({ title, group, course });
     responseHandler(res, 201, "Faculty created successfully", faculty);
   }
 );
@@ -35,8 +35,8 @@ export const createFaculty = asyncHandler(
 export const updateFaculty = asyncHandler(
   async (req: Request, res: Response) => {
     const { id } = req.params;
-    const { title } = req.body;
-    if (!title) {
+    const { title, group, course } = req.body;
+    if (!title || !group || !course) {
       throw new CustomError("Please provide title", 400);
     }
     const faculty = await Faculty.findById(id);
@@ -44,6 +44,8 @@ export const updateFaculty = asyncHandler(
       throw new CustomError("Faculty not found", 404);
     }
     faculty.title = title;
+    faculty.group = group;
+    faculty.course = course;
     await faculty.save();
     responseHandler(res, 200, "Faculty updated successfully", faculty);
   }
