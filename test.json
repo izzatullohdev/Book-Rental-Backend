@@ -1,0 +1,32 @@
+{
+  "fakutet": "iqtisod",
+  "groups": [
+    {
+      "id": "1",
+      "group": "421-22",
+      "types": [
+        { "title": "sirtqi" },
+        { "title": "kunguzgi" },
+        { "title": "kechki" }
+      ]
+    },
+    {
+      "id": "2",
+      "group": "421-23",
+      "types": [
+        { "title": "sirtqi" },
+        { "title": "kunguzgi" },
+        { "title": "kechki" }
+      ]
+    },
+    {
+      "id": "3",
+      "group": "421-24",
+      "types": [
+        { "title": "sirtqi" },
+        { "title": "kunguzgi" },
+        { "title": "kechki" }
+      ]
+    }
+  ]
+}

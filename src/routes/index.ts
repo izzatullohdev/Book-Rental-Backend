@@ -1,6 +1,6 @@
 import express from "express";
 import AdminRouter from "./admin.route";
-import FacultyRouter from "./faulty.route";
+import FacultyRouter from "./Faculty/faulty.route";
 import { protect } from "../middlewares/protect";
 const router = express.Router();
 
